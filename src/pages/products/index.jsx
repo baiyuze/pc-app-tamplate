@@ -33,7 +33,7 @@ class Products extends React.Component {
       <div>
         <h2>List of </h2>
         <img className="test" src={`/img/yay.jpg`} alt=""/>
-        <ProductList onDelete={this.handleDelete.bind(this)} tableList={products.tableList} />
+        <ProductList onDelete={this.handleDelete.bind(this)} tableList={products.list} />
       </div>
     );
   }

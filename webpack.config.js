@@ -137,7 +137,7 @@ let config = {
       "X-Custom-Foo": "bar"
     },
     // hot: true,
-    // open: true,
+    open: true,
     // https: true,
     before(app) { 
       apiMocker(app, path.resolve('./mock/api.mock.js'),{

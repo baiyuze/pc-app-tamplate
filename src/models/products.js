@@ -5,28 +5,27 @@ export default {
   namespace: 'products',
 
   state: {
-    obj: {},
-    tableList: []
+    list: [
+      { name: 'dva', id: 1 },
+      { name: 'antd', id: 2 },
+    ],
   },
 
   effects: {
     *query(_, { call, put }) {
-      const response = yield call(query);
-      console.log(response,"-----");
+      const response = yield call(query,1231);
       yield put({
         type: 'saveObj',
-        obj: {a: 1}
+        obj: response
       });
     },
   },
 
   reducers: {
     saveObj(state, action) {
-      console.log(state,action,"--6--")
-      
       return {
-        obj: action.obj,
-        tableList: state
+        ...state,
+        obj: action.obj
       };
     },
     'delete'(state, { payload: id }) {
@@ -35,3 +34,5 @@ export default {
     },
   },
 };
+
+

@@ -1,8 +1,17 @@
 const fs = require('fs');
-const fromJSONFile = require("./file.read.js");
+const path = require('path');
+const fromJSONFile = require('./file.read.js');
+const forEach = require('lodash/forEach');
+let fileApi = {};
 
-const proxy = {
-  'GET /app/user/profile': fromJSONFile('profile'),
-  'post /app/user/profile1': fromJSONFile('profile1'),
-};
-module.exports = proxy;
+let fileAdr = fs.readdirSync(path.resolve('./mock/apimap/'));
+
+fileAdr.forEach((fileName, index) => {
+  let obj = require(path.resolve(`./mock/apimap/${fileName}`));
+  forEach(obj,(value, key) => {
+    fileApi[key] = fromJSONFile(value);
+  })
+});
+
+
+module.exports = fileApi;

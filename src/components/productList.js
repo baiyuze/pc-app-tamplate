@@ -16,7 +16,6 @@ const ProductList = ({ onDelete, tableList }) => {
       );
     },
   }];
-  console.log(tableList,"====-")
   return (
     <Table
       rowKey="id"
@@ -26,9 +25,5 @@ const ProductList = ({ onDelete, tableList }) => {
   );
 };
 
-ProductList.propTypes = {
-  onDelete: PropTypes.func.isRequired,
-  products: PropTypes.array.isRequired,
-};
 
 export default ProductList;
